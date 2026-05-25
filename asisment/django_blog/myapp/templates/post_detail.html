@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<h2>{{ post.title }}</h2>
+<p>{{ post.content|safe }}</p>
+
+<p>Likes: {{ post.likes.count }}</p>
+
+<form method="POST" action="/like/{{ post.id }}/">
+    {% csrf_token %}
+    <button class="btn btn-primary">Like / Unlike</button>
+</form>
+
+<hr>
+
+<h4>Comments</h4>
+
+{% for comment in post.comments.all %}
+    <p><b>{{ comment.user.username }}</b>: {{ comment.content }}</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="content" class="form-control"></textarea>
+    <button class="btn btn-success mt-2">Add Comment</button>
+</form>
+{% endif %}
+
+{% endblock %}
