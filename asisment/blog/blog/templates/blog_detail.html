@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail-bg">
+{% if edit_mode %}
+
+<h2>Edit Post</h2>
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+
+<input type="text" name="title" value="{{post.title}}" class="form-control">
+
+<br>
+
+<textarea name="content" class="form-control">{{post.content}}</textarea>
+
+<br>
+
+<input type="file" name="image">
+
+<br>
+
+<button class="btn btn-success">Update Post</button>
+
+</form>
+
+<hr>
+
+{% else %}
+
+<h2>{{post.title}}</h2>
+
+<p>Author: {{ post.author.username }}</p>
+
+{% if request.user.is_authenticated and request.user == post.author %}
+<a href="{% url 'follow_user' post.author.id %}" class="btn btn-warning">
+Follow
+</a>
+{% endif %}
+
+{% if post.image %}
+<img src="{{post.image.url}}" width="200">
+{% endif %}
+
+<p>{{post.content}}</p>
+
+<p>Likes: {{post.total_likes}}</p>
+
+<a href="{% url 'like_post' post.id %}" class="btn btn-primary">
+Like
+</a>
+
+{% if request.user == post.author %}
+
+<a href="{% url 'edit_post' post.id %}" class="btn btn-info">
+Edit Post
+</a>
+
+<a href="{% url 'delete_post' post.id %}" class="btn btn-danger">
+Delete Post
+</a>
+
+{% endif %}
+
+<hr>
+
+<h4>Comments</h4>
+
+{% for comment in post.comment_set.all %}
+<p><b>{{comment.user}}</b>: {{comment.text}}</p>
+{% endfor %}
+
+<form method="POST" action="{% url 'add_comment' post.id %}">
+{% csrf_token %}
+
+<textarea name="comment" class="form-control"></textarea>
+
+<br>
+
+<button class="btn btn-success">Comment</button>
+
+<h5 align="center"><a href="{% url 'blog_list'%}">Back To Home Page</a></h5>
+
+</form>
+
+{% endif %}
+</div>
+
+{% endblock %}

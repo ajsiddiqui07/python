@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Django Blog</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+    color:white;
+}
+
+/* NAVBAR */
+.custom-navbar{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.15);
+    padding:18px 0;
+}
+
+.blog-title{
+    font-size:34px;
+    font-weight:800;
+    color:#38bdf8;
+    letter-spacing:2px;
+}
+
+/* MAIN CONTAINER */
+.container.mt-4{
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:30px;
+}
+
+/* CARDS */
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border:none;
+    border-radius:20px;
+    color:white;
+    transition:0.4s;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(56,189,248,0.3);
+}
+
+.card-title{
+    color:#38bdf8;
+    font-weight:700;
+}
+
+.card p{
+    color:#d1d5db;
+}
+
+/* BUTTONS */
+.btn{
+    border-radius:30px;
+    font-weight:600;
+    padding:8px 20px;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:#38bdf8;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#0ea5e9;
+    transform:scale(1.05);
+}
+
+.btn-success{
+    background:#22c55e;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#16a34a;
+}
+
+.btn-danger{
+    background:#ef4444;
+    border:none;
+}
+
+.btn-danger:hover{
+    background:#dc2626;
+}
+
+.btn-dark{
+    background:#1e293b;
+    border:none;
+}
+
+/* FORMS */
+.form-box,
+.create-card,
+.detail-bg{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:30px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.form-box label{
+    color:#38bdf8;
+    font-weight:600;
+}
+
+input,
+textarea{
+    width:100%;
+    background:rgba(255,255,255,0.08) !important;
+    border:1px solid rgba(255,255,255,0.15) !important;
+    color:white !important;
+    border-radius:12px !important;
+    padding:12px !important;
+}
+
+input:focus,
+textarea:focus{
+    box-shadow:0 0 12px rgba(56,189,248,0.5) !important;
+    border-color:#38bdf8 !important;
+}
+
+/* LINKS */
+a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+a:hover{
+    color:#7dd3fc;
+}
+
+/* USER TEXT */
+.navbar span{
+    color:white !important;
+}
+
+/* DETAIL PAGE */
+.detail-bg h1,
+.detail-bg h2,
+.detail-bg h3{
+    color:#38bdf8;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-dark custom-navbar">
+<div class="container">
+
+<a class="navbar-brand blog-title" href="/">My Blog</a>
+
+<div>
+
+{% if user.is_authenticated %}
+
+<span class="text-dark me-3 fw-bold ">
+Hello {{ user.username }}
+</span>
+
+<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+
+{% else %}
+
+<a href="{% url 'login' %}" class="btn btn-success me-2">Login</a>
+
+<a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+
+{% endif %}
+
+</div>
+
+</div>
+</nav>
+
+<div class="container mt-4 p-4 bg-#20c997 rounded shadow-sm">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</body>
+
+</html>
