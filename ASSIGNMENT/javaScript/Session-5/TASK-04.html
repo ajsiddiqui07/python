@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        
+        let formatFollowers = (number)=>{
+            let k = 1000;
+            let m = 1000000;
+
+            if(number>k && number<m){
+                if(number==k){
+                    console.log("1k");
+                    
+                }else{
+                    console.log(`${number/k}k`);
+                }
+            }
+            if(number>m){
+                 if(number==m){
+                    console.log("1m");
+                    
+                }else{
+                    console.log(`${number/m}m`);
+                }
+            }
+        }
+
+        formatFollowers(35000);
+    </script>
+</body>
+
+</html>

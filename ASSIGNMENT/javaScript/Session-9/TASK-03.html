@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user" value="">
+   <button id="btn">insertitem</button>
+    <script>
+        // Build a function saveRecentSearch(query) that takes a search term (like 'Biryani' or 'Sneakers'), adds it to an array, converts the array to JSON, and saves it in localStorage under the key 'recentSearches'.
+        let user = document.querySelector("#user");
+        let btn = document.querySelector("#btn");
+        btn.addEventListener("click",()=>{
+            let query = user.value;
+            let localFood= localStorage.getItem('foodItem');
+            console.log(localFood);
+            if(localFood){
+                localFood= JSON.parse(localFood);
+                console.log(localFood);
+                localFood.push(query);
+                localStorage.setItem('foodItem',JSON.stringify(localFood))
+                
+            }
+            else{
+            let correntquery = [];
+            correntquery.push(query)
+                let queryintojson =  JSON.stringify(correntquery)
+                console.log(queryintojson);
+                localStorage.setItem('foodItem',queryintojson)
+            }
+        })
+       
+
+    
+    </script>
+</body>
+</html>

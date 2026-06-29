@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #moodbox{
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="enter the color of div">
+    <button onclick="btn()">change dic color</button>
+    <div id="moodbox"></div>
+    <script>
+    function btn(){
+     let input = document.querySelector("#input")
+     let divcolor = document.querySelector("#moodbox");
+     divcolor.style.backgroundColor = input.value;
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h1>item list</h1>
+    <ul id="list">
+    
+
+    </ul>
+    <button id="btn">clear item</button>
+
+    <h1 id="msg"></h1>
+   <script>
+    // Implement a 'Clear Favorites' button on your restaurant list page that removes the saved data from localStorage using localStorage.removeItem() and updates the UI accordingly.<br><br><em><strong>Hint:</strong> Use localStorage.removeItem('yourKey') and refresh the displayed list after clearing.</em>
+    let array = ["kfc","dominos","Burger King"]
+    localStorage.setItem("favorites",JSON.stringify(array));
+    let collection =  JSON.parse(localStorage.getItem("favorites"))
+    let btn = document.querySelector("#btn")
+    let ul = document.querySelector("#list")
+    let msg = document.querySelector("#msg")
+
+    collection.forEach((index,i)=>{
+        let li = document.createElement("li")
+        li.innerText = index;
+        ul.appendChild(li);
+    })
+    
+    btn.addEventListener("click",()=>{
+       localStorage.removeItem("favorites");
+       ul.innerText="";
+        console.log("all favorites deleted");
+        msg.innerText = "all item list deleted"
+        
+    })
+    
+   </script>
+   
+    
+</body>
+</html>

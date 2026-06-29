@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+   <script>
+     // Build an array called cart containing 4 objects, each representing a Flipkart product with properties: productName, price, and quantity. Write a loop to display each product's name and total price (price × quantity) in the console.
+
+     cart = [
+        {
+    productName: "Samsung Galaxy M35",
+    price: 18999,
+    quantity: 1
+},
+
+{
+    productName: "Boat Rockerz 450 Headphones",
+    price: 1499,
+    quantity: 2
+},
+
+{
+    productName: "HP Wireless Mouse",
+    price: 699,
+    quantity: 3
+},
+{
+    productName: "Nike Sports Shoes",
+    price: 2999,
+    quantity: 4
+},
+    ]
+
+    
+        for (let i of cart) {
+            console.log(`product name :${i.productName}`);
+            console.log(`total price : ${i.price*i.quantity}`);
+            
+
+        }
+   </script>
+   
+    
+</body>
+</html>

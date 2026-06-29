@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+       let user1 = "Arbaz";
+       let user2 = user1;
+       
+       user1="atul";
+       console.log(user2);
+       console.log(user1);
+       
+
+       let favapps1 ={app:"instagram"}
+       let favapps2 = favapps1;
+       
+       favapps1.app="facebook";
+       console.log(favapps2);
+       console.log(favapps1);
+
+        /*
+        Difference:
+
+        Strings are primitive values. When user2 = user1,
+        a copy of the value is stored in user2.
+        Changing user1 later does not affect user2.
+
+        Reference Types (Objects):
+        Assignment copies the reference, not the object itself.
+        Both variables point to the same object.
+        Changing city through one variable affects the other.
+    */
+        
+    </script>
+</body>
+</html>

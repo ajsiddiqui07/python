@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+   
+  
+    <script>
+        
+           //  Use the splice() method to remove the second playlist from your playlists array and insert a new playlist at that position. Print the resulting array.<br><br><em><strong>Hint:</strong> splice(startIndex, deleteCount, newItem) can both remove and add in one call.</em>
+             playlists = [{
+          name: "Top Hits 2026",
+          creator: "Arbaz",
+          numberOfSongs: 25
+        },
+
+{
+          name: "Workout Mix",
+          creator: "Rahul",
+          numberOfSongs: 18
+        },
+
+{
+          name: "Chill Vibes",
+          creator: "Ayesha",
+          numberOfSongs: 30
+        }]
+
+        for (let i of playlists) {
+            console.log(i);
+
+        }
+        playlists.splice(1,1,{
+                name: "Late Night Beats",
+                creator: "Zain",
+                numberOfSongs: 22
+            })
+        for (let i of playlists) {
+            console.log(i);
+
+        }
+   </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+       let user1 = "Arbaz";
+       let user2 = user1;
+       
+       user1="atul";
+       console.log(user2);
+       console.log(user1);
+       
+
+       let favapps1 =['Instagram', 'Spotify'];
+       let favapps2 = favapps1;
+       
+       favapps1.push("zomato");
+       console.log(favapps2);
+       console.log(favapps1);
+       
+            
+        /*
+        Difference:
+
+        Strings are primitive values. When user2 = user1,
+        a copy of the value is stored in user2.
+        Changing user1 later does not affect user2.
+
+        Arrays are reference types. When favApps2 = favApps1,
+        both variables point to the same array in memory.
+        Changing the array through favApps1 also affects favApps2.
+        */
+            
+    </script>
+</body>
+</ht

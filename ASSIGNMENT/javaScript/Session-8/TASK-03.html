@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        // Remove the last playlist from your playlists array using the pop() method and display the removed object in the console.
+     
+        playlists = [{
+          name: "Top Hits 2026",
+          creator: "Arbaz",
+          numberOfSongs: 25
+        },
+
+{
+          name: "Workout Mix",
+          creator: "Rahul",
+          numberOfSongs: 18
+        },
+
+{
+          name: "Chill Vibes",
+          creator: "Ayesha",
+          numberOfSongs: 30
+        }]
+            playlists.push({
+                name: "Late Night Beats",
+                creator: "Zain",
+                numberOfSongs: 22
+            })
+    playlists.pop();
+        for (let i of playlists) {
+            console.log(i);
+
+        }
+    
+    </script>
+</body>
+</html>

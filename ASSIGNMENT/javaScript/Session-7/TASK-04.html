@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <select onchange="changerantime(value)">
+    <option>Indian</option>
+    <option>Chinese</option>
+    <option>Italian</option>
+    <option>Punjabi</option>
+    </select>
+    <h1 id="msg"></h1>
+    <script>
+        
+    function changerantime(value){
+        
+        let msg =  document.getElementById("msg")
+        msg.innerHTML=`You selected ${value} cuisine.`;
+        
+    }
+   
+    </script>
+</body>
+
+</html>

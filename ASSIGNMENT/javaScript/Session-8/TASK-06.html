@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+    <script>
+
+  //  Given an array of objects called movies, where each object has properties: title, year, and a nested object rating with keys imdb and rottenTomatoes, write code to print each movie's title and its IMDb rating.
+    
+       const movie = [{
+    title: "Inception",
+    year: 2010,
+    rating: {
+        imdb: 8.8,
+        rottenTomatoes: 87
+    }
+},
+
+{
+    title: "Interstellar",
+    year: 2014,
+    rating: {
+        imdb: 8.7,
+        rottenTomatoes: 73
+    }
+},
+
+{
+    title: "The Dark Knight",
+    year: 2008,
+    rating: {
+        imdb: 9.0,
+        rottenTomatoes: 94
+    }
+},
+
+{
+    title: "Avengers: Endgame",
+    year: 2019,
+    rating: {
+        imdb: 8.4,
+        rottenTomatoes: 94
+    }
+}
+]
+
+      for (let i of movie) {
+            console.log(`movie title:${i.title}`);
+            console.log(`movie imdb :${i.rating.imdb}`);
+
+        }
+
+
+</script>
+</body>
+</head>

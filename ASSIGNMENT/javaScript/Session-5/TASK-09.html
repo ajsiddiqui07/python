@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+    function createPlaylistButton(songName, themeColor){
+        let button =  document.createElement("button")
+        button.innerText = songName;
+        button.style.backgroundColor = themeColor;
+        return document.body.appendChild(button)
+    }
+    createPlaylistButton("Lut Gaye","lightblue");
+    createPlaylistButton("Raataan Lambiyan","lightgray");
+    createPlaylistButton("Dil Galti Kar Baitha Hai","lightcoral");
+
+    console.log(btn());
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+    <script>
+        // Debug this code: It tries to save an array of movie names to localStorage, but after reloading, the list doesn't display correctly.<br><br>let movies = ['Jawan', 'Pathaan', 'Dunki'];<br>localStorage.setItem('movies', movies);<br>let saved = localStorage.getItem('movies');<br>let arr = JSON.parse(saved);<br>console.log(arr);<br><br><em><strong>Hint:</strong> Check how movies is being stored and what type localStorage expects.</em>
+        let movies = ['Jawan', 'Pathaan', 'Dunki'];
+        // localStorage.setItem("movies",movies) // the bug is array is not stringify in that line
+        localStorage.setItem('movies', JSON.stringify(movies));
+
+            let saved = localStorage.getItem('movies');
+
+            let arr = JSON.parse(saved);
+
+            console.log(arr);
+
+    </script>
+</body>
+</head>

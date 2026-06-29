@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user" placeholder="enter product name">
+    <button id="btn">add to cart</button>
+    <div id="cart"></div>
+    
+    <script>
+        let count = 0
+        let btn = document.querySelector("#btn")
+        btn.addEventListener("click",()=>{
+            let user = document.querySelector("#user");
+            let cart = document.querySelector("#cart");
+            let newcart = document.createElement("div");
+            let htag = document.createElement("h3");
+            htag.innerText = `cart:${count}`
+            newcart.innerText = user.value;
+            
+            cart.appendChild(newcart);
+            newcart.prepend(htag)
+            count++;
+        })
+    </script>
+</body>
+</html>
