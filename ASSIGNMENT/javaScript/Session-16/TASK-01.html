@@ -1,0 +1,26 @@
+<!-- Given an array of Flipkart product objects with properties name, price, and isInStock, use the filter() method to create a new array containing only the products that are in stock. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const products = [
+            { name: "Redmi Note 12", price: 15000, isInStock: true },
+            { name: "iPhone 14", price: 70000, isInStock: false },
+            { name: "Samsung Galaxy S23", price: 65000, isInStock: true },
+            { name: "Realme Narzo", price: 12000, isInStock: false }
+        ];
+
+        const inStockProducts = products.filter(product => product.isInStock);
+
+        console.log(inStockProducts);
+    </script>
+</body>
+
+</html>

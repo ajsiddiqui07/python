@@ -1,0 +1,39 @@
+<!-- Extend the Playlist class by adding a method addSong(songName) that adds a new song to the songs array. Demonstrate by adding two songs and displaying the updated playlist. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Playlist {
+            constructor() {
+                this.songs = [];
+            }
+
+            addSong(songName) {
+                this.songs.push(songName);
+            }
+
+            displayPlaylist() {
+                console.log("🎵 Playlist:");
+                this.songs.forEach((song, index) => {
+                    console.log(`${index + 1}. ${song}`);
+                });
+            }
+        }
+
+        const myPlaylist = new Playlist();
+
+        myPlaylist.addSong("Shape of You");
+        myPlaylist.addSong("Believer");
+
+        myPlaylist.displayPlaylist();
+    </script>
+</body>
+
+</html>

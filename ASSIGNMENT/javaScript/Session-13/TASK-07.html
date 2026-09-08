@@ -1,0 +1,22 @@
+<!-- Given this buggy code, debug it so that it properly handles errors when trying to access a property of an undefined object:<br><br>let user;<br>try {<br> console.log(user.name);<br>} catch (e) {<br> // handle error<br>}<br><br><em><strong>Hint:</strong> Make sure the error message is user-friendly, like 'User data not found'.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling Example</title>
+</head>
+<body>
+
+    <script>
+        let user;
+
+        try {
+            console.log(user.name);
+        } catch (e) {
+            console.error('User data not found');
+        }
+    </script>
+
+</body>
+</html>

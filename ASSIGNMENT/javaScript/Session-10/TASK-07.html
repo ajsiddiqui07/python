@@ -1,0 +1,31 @@
+<!-- 
+Refactor this function to use an arrow function and rest parameters: function addToCart() { let total = 0; for(let i=0; i<arguments.length; i++) { total += arguments[i]; } return total; } The new function should be called addToCartArrow and accept any number of prices as arguments, returning their sum. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Total</title>
+</head>
+<body>
+
+<h1>Cart Total Calculator</h1>
+
+<script>
+    
+    const addToCartArrow = (...prices) => {
+        let total = 0;
+
+        for (let i = 0; i < prices.length; i++) {
+            total += prices[i];
+        }
+
+        return total;
+    };
+
+    
+    console.log(addToCartArrow(125, 200, 500));
+    console.log(addToCartArrow(499, 1299));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- You are given this buggy code: function formatFollowers(count) { try { if(count < 0) throw 'Negative count'; return count + ' followers'; } catch(e) { return e.message; } }. It should return the error message if count is negative, but it returns undefined. Fix the code so it properly throws and catches an Error object.<br><br><em><strong>Hint:</strong> Use Error objects instead of strings for throwing and catching errors.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Format Followers</title>
+</head>
+
+<body>
+
+    <script>
+        function formatFollowers(count) {
+            try {
+                if (count < 0) {
+                    throw new Error('Negative count');
+                }
+
+                return count + ' followers';
+            } catch (e) {
+                return e.message;
+            }
+        }
+
+        console.log(formatFollowers(150));
+        console.log(formatFollowers(-5));
+    </script>
+
+</body>
+
+</html>

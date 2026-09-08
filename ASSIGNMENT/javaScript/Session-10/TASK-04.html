@@ -1,0 +1,24 @@
+<!-- 
+Write a function orderFood(item, quantity = 1) that returns a string like 'You ordered 2 Burgers.' Use default parameters so that if quantity is not passed, it defaults to 1.<br><br><em><strong>Hint:</strong> Try calling orderFood('Pizza') and orderFood('Burger', 2) to test both cases.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Food</title>
+</head>
+<body>
+
+<h1>Food Order System</h1>
+
+<script>
+    function orderFood(item, quantity = 1) {
+        return `You ordered ${quantity} ${item}.`;
+    }
+
+    console.log(orderFood("khaman"));
+
+    console.log(orderFood("samosa", 4));
+</script>
+
+</body>
+</html>

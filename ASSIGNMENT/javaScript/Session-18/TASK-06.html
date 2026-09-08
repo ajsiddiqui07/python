@@ -1,0 +1,16 @@
+
+<!-- Given the following broken function, run it in your browser and use the stack trace in the console to identify which function call caused the error: function placeOrder() { confirmOrder(); } function confirmOrder() { processPayment(); } function processPayment() { throw new Error('Payment failed'); } placeOrder();<br><br><em><strong>Hint:</strong> Expand the error in the console to see the call stack.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    answer:-
+    The error occurred in the processPayment() function. The call stack shows that placeOrder() called confirmOrder(), and confirmOrder() called processPayment(). The processPayment() function throws the "Payment failed" error.
+</body>
+</html>

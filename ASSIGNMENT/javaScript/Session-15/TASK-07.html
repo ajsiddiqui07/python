@@ -1,0 +1,31 @@
+<!-- Refactor the FlipkartProduct class: rename the displayDetails() method to showProductInfo() and ensure it still works as before.<br><br><em><strong>Hint:</strong> Update any code that calls the old method name.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class FlipkartProduct {
+            constructor(title, price, rating) {
+                this.title = title;
+                this.price = price;
+                this.rating = rating;
+            }
+
+            showProductInfo() {
+                console.log(`${this.title} - ₹${this.price} - ${this.rating}⭐`);
+            }
+        }
+
+        const product1 = new FlipkartProduct("Samsung Galaxy S24", 69999, 4.6);
+
+        product1.showProductInfo();
+    </script>
+</body>
+
+</html>

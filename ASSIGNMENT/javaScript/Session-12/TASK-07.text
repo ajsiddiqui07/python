@@ -1,0 +1,12 @@
+
+
+**Request:**
+The browser sends an HTTP **GET request** to `https://jsonplaceholder.typicode.com/users` to retrieve user information from the server.
+
+**Response:**
+The server returns a **200 OK** status along with a JSON array containing user details such as ID, name, email, and address, which the browser can then process and display.
+
+### Short Version (2 Lines)
+
+1. The browser sent a GET request to the API endpoint to fetch user data.
+2. The server responded with a 200 OK status and returned user information in JSON format.

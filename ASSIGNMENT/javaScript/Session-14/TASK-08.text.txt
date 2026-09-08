@@ -1,0 +1,8 @@
+question : - Explain in your own words (3-4 sentences) how splitting utility functions into separate files using imports and exports would help you scale a Zomato-like app as it grows from 2 to 20 features. Give one concrete example.
+
+
+answer:- 
+
+Splitting utility functions into separate files using imports and exports helps a Zomato-like app scale because it keeps the code organized and easier to manage. Each feature becomes independent, so updating one part of the app does not break other parts. It also improves teamwork because different developers can work on different modules at the same time. As the app grows from 2 to 20 features, this modular structure keeps the project clean and maintainable.
+
+For example, instead of putting everything in one file, features like cart handling, price calculation, and restaurant search can each be placed in separate utility files and used only where needed.

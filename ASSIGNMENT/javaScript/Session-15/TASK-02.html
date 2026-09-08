@@ -1,0 +1,39 @@
+<!-- dd a method displayPlaylist() to the Playlist class that logs the playlist name and all song titles in a formatted string. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playlist OOP</title>
+</head>
+
+<body>
+
+<script>
+    class Playlist {
+        constructor(name, songs) {
+            this.name = name;
+            this.songs = songs;
+        }
+
+        displayPlaylist() {
+            console.log(`Playlist: ${this.name}`);
+            console.log("Songs:");
+
+            this.songs.forEach((song, index) => {
+                console.log(`${index + 1}. ${song}`);
+            });
+        }
+    }
+
+    const myPlaylist = new Playlist("Chill Vibes", [
+        "Blinding Lights",
+        "Perfect",
+        "Let Me Love You"
+    ]);
+
+    myPlaylist.displayPlaylist();
+
+</script>
+
+</body>
+</html>

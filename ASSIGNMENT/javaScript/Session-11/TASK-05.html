@@ -1,0 +1,43 @@
+<!-- Build a function getOrderStatus(orderId) that returns a Promise. Simulate a 1.5 second delay using setTimeout, then resolve with 'Order delivered' if orderId is even, or reject with 'Order not found' if odd. Use .then() and .catch() to handle both cases and log the result. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getOrderStatus(orderId) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    if (orderId % 2 === 0) {
+                        resolve("Order delivered");
+                    } else {
+                        reject("Order not found");
+                    }
+                }, 1500);
+            });
+        }
+
+        getOrderStatus(101)
+            .then((message) => {
+                console.log(message);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+        getOrderStatus(106)
+            .then((message) => {
+                console.log(message);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    </script>
+</body>
+
+</html>

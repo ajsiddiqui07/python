@@ -1,0 +1,28 @@
+<!-- Ask ChatGPT to suggest a one-liner using map() and reduce() that calculates the sum of all prices in an array of Myntra cart items, and then implement the suggested code in your editor. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const cartItems = [
+            { name: "Hoodie", price: 999 },
+            { name: "Cargo Pants", price: 1499 },
+            { name: "Running Shoes", price: 2499 },
+            { name: "Backpack", price: 799 }
+        ];
+
+        const totalPrice = cartItems
+            .map(item => item.price)
+            .reduce((acc, price) => acc + price, 0);
+
+        console.log(totalPrice);
+    </script>
+</body>
+
+</html>

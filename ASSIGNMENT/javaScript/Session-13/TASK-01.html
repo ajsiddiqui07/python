@@ -1,0 +1,41 @@
+<!-- Create a function validateSpotifyURL(url) that takes a string and checks if it starts with 'https://open.spotify.com/'. If not, throw a custom Error with the message 'Invalid Spotify URL'. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Spotify URL</title>
+</head>
+
+<body>
+
+    <h1>Spotify URL Validation Example</h1>
+
+    <script>
+        function validateURL(url) {
+            if (!url.startsWith('https://open.spotify.com/')) {
+                throw new Error('Invalid Spotify URL');
+            }
+
+            return true;
+        }
+
+        try {
+            validateURL('https://open.spotify.com/playlist/12345');
+            console.log('Valid Spotify URL');
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        try {
+            validateURL('https://youtube.com/watch?v=12345');
+            console.log('Valid Spotify URL');
+        } catch (error) {
+            console.error(error.message);
+        }
+    </script>
+
+</body>
+
+</html>

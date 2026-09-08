@@ -1,0 +1,44 @@
+<!-- Write a function getOrderTotal(items) for a Zomato-style food order, where items is an array of objects with name and price. If any price is negative, throw a custom Error('Invalid item price'). Use try...catch to handle the error and display a friendly message. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Order Total</title>
+</head>
+
+<body>
+
+    <script>
+        function getOrderTotal(items) {
+            let total = 0;
+
+            for (let item of items) {
+                if (item.price < 0) {
+                    throw new Error('Invalid item price');
+                }
+
+                total += item.price;
+            }
+
+            return total;
+        }
+
+        const orderItems = [
+            { name: 'Pizza', price: 250 },
+            { name: 'Burger', price: 150 },
+            { name: 'Cold Drink', price: -50 }
+        ];
+
+        try {
+            const total = getOrderTotal(orderItems);
+            console.log('Order Total: ₹' + total);
+        } catch (error) {
+            console.error('Sorry, there is an issue with your order: ' + error.message);
+        }
+    </script>
+
+</body>
+
+</html>

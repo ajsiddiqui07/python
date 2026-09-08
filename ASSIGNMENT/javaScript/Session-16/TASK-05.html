@@ -1,0 +1,26 @@
+<!-- Given an array of Instagram post objects with a likes property, use reduce() to calculate the total number of likes across all posts. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const posts = [
+            { id: 1, likes: 120 },
+            { id: 2, likes: 450 },
+            { id: 3, likes: 89 },
+            { id: 4, likes: 300 }
+        ];
+
+        const totalLikes = posts.reduce((acc, post) => acc + post.likes, 0);
+
+        console.log(totalLikes);
+    </script>
+</body>
+
+</html>

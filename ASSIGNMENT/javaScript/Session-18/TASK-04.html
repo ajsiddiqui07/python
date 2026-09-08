@@ -1,0 +1,39 @@
+<!-- Write a function addToCart(productName, quantity) that logs a success message using console.log(), a warning if quantity is zero using console.warn(), and an error if quantity is negative using console.error(). Call the function with all three scenarios to see each message type in the console. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+</head>
+
+<body>
+
+
+    <script>
+   function addToCart(productName, quantity) {
+
+    if (quantity > 0) {
+        console.log(`${productName} added to cart. Quantity: ${quantity}`);
+
+    } else if (quantity === 0) {
+        console.warn(`${productName} quantity is zero.`);
+
+    } else {
+        console.error(`${productName} quantity cannot be negative.`);
+    }
+}
+
+
+addToCart("Pizza", 2);
+
+
+addToCart("Burger", 0);
+
+
+addToCart("Pasta", -1);    
+  
+    </script>
+
+</body>
+
+</html>

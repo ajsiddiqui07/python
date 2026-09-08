@@ -1,0 +1,31 @@
+<!-- Declare a JavaScript class named Playlist that has a constructor accepting two parameters: name and songs (an array). Create an instance for a Spotify playlist called 'Chill Vibes' with 3 song names. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class playlist {
+            constructor(name, songs) {
+                this.name = name;
+                this.songs = songs;
+            }
+        }
+
+        let chillvibes = new playlist("chill vibes", [
+            "Let Me Down Slowly",
+            "Perfect",
+            "Night Changes"
+        ]);
+
+        console.log(chillvibes);
+        
+    </script>
+</body>
+
+</html>

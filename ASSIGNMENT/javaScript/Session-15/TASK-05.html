@@ -1,0 +1,29 @@
+<!-- Refactor the following code to use a class instead of a function constructor:<br><br>function Movie(title, genre) { this.title = title; this.genre = genre; }<br>Movie.prototype.display = function() { console.log(this.title + ' - ' + this.genre); }<br><br>Make sure your new class works the same way. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Movie {
+            constructor(title, genre) {
+                this.title = title;
+                this.genre = genre;
+            }
+
+            display() {
+                console.log(`${this.title} - ${this.genre}`);
+            }
+        }
+
+        const movie1 = new Movie("3 Idiots", "Comedy");
+        movie1.display();
+    </script>
+</body>
+
+</html>

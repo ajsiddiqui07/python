@@ -1,0 +1,27 @@
+
+<!-- Build a Promise called getFollowersCount that resolves after 1 second with a random number between 1000 and 5000, then use .then() to display 'You have X new followers' (like Instagram) in the console. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const getFollowersCount = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const followers = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+                resolve(followers);
+            }, 1000);
+        });
+
+        getFollowersCount.then((count) => {
+            console.log(`You have ${count} new followers`);
+        });
+    </script>
+</body>
+
+</html>

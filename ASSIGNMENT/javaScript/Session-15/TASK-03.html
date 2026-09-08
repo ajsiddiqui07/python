@@ -1,0 +1,48 @@
+<!-- Add a method getSongCount() to the Playlist class that returns the total number of songs in the playlist. Call this method on your instance and display the result. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Playlist {
+            constructor(name, songs) {
+                this.name = name;
+                this.songs = songs;
+            }
+
+            displayPlaylist() {
+                console.log(`🎵 Playlist: ${this.name}`);
+                console.log("Songs:");
+
+                this.songs.forEach((song, index) => {
+                    console.log(`${index + 1}. ${song}`);
+                });
+            }
+
+            getSongCount() {
+                return this.songs.length;
+            }
+        }
+
+        const myPlaylist = new Playlist("Bhakti Vibes - Lord Ram", [
+            "Shri Ram Chandra Kripalu Bhajman",
+            "Ram Siya Ram",
+            "Mangal Bhavan Amangal Hari",
+            "Jai Shri Ram"
+        ]);
+
+        myPlaylist.displayPlaylist();
+
+        const count = myPlaylist.getSongCount();
+        console.log("Total Songs:", count);
+
+    </script>
+</body>
+
+</html>

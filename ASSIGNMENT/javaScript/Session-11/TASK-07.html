@@ -1,0 +1,47 @@
+
+<!-- Refactor the following callback-based code to use Promises instead: setTimeout(function() { console.log('Payment successful!'); }, 1000); Ensure the new function returns a Promise and logs the message after 1 second.<br><br><em><strong>Hint:</strong> Use new Promise((resolve, reject) => { ... }) and resolve inside setTimeout.</em><!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Function that returns a Promise
+        function processPayment() {
+
+            return new Promise((resolve, reject) => {
+
+                // Simulate payment processing delay
+                setTimeout(() => {
+
+                    // Payment successful
+                    resolve("Payment successful!");
+
+                }, 1000);
+
+            });
+
+        }
+
+        // Call the function
+        processPayment()
+
+            .then((message) => {
+                console.log(message);
+            })
+
+            .catch((error) => {
+                console.log(error);
+            })
+
+            .finally(() => {
+                console.log("Payment process completed.");
+            });
+    </script>
+</body>
+
+</html>

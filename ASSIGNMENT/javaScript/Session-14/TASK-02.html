@@ -1,0 +1,35 @@
+<!-- Create a file called utils.js and write two functions: formatPrice(price) that returns a string like '₹199.00', and getDiscountedPrice(price, discount) that returns the price after applying the discount percentage. Export both functions as named exports. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Discount Calculator</title>
+</head>
+<body>
+
+    <h1>Price Discount Calculator</h1>
+
+    <p id="originalprice"></p>
+    <p id="discountprice"></p>
+
+    <script type="module">
+        import { formatPrice, getDiscount } from "./03_utils.js";
+
+        let price = 199;
+        let discount = 10;
+
+        let discountPrice = getDiscount(price, discount);
+
+        console.log("Original Price:", formatPrice(price));
+        console.log("Discounted Price:", formatPrice(discountPrice));
+
+        document.getElementById("originalprice").textContent =
+            "Original Price: " + formatPrice(price);
+
+        document.getElementById("discountprice").textContent =
+            "Discounted Price: " + formatPrice(discountPrice);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- Send a POST request using fetch() to https://jsonplaceholder.typicode.com/posts with a JSON body containing a title and body (your own text), then log the response object and check if the id property is present in the response.<br><br><em><strong>Hint:</strong> Set the Content-Type header to 'application/json' and use JSON.stringify() for the body.</em> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST Request</title>
+</head>
+
+<body>
+    <h1>Send POST Request</h1>
+
+    <script>
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify({
+                title: 'My First Movie Review',
+                body: 'This movie was amazing and full of action.'
+            })
+        })
+
+            .then(response => response.json())
+            .then(data => {
+                console.log('Request object', data);
+
+                if (data.id) {
+                    console.log("ID is present:", data.id);
+
+                } else {
+                    console.log("ID is not present");
+
+                }
+
+            })
+
+            .catch(error => {
+                console.error('Error:', error);
+
+            });
+    </script>
+</body>
+
+</html>

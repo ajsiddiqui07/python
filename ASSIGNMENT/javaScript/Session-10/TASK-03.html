@@ -1,0 +1,24 @@
+<!-- 
+Write a function getDeliveryDetails that takes two parameters: address (string) and paymentMethod (string), both with default values ('Ahmedabad' and 'UPI'). Log a message using template literals showing both values. Call the function once with no arguments and once with custom values. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function deliverydetail(address = "delhi", paymentMethod = "UPI") {
+            console.log(`Order will be delivered to ${address} and payment method is ${paymentMethod}.`);
+        }
+
+        deliverydetail();
+
+        deliverydetail("Surat", "Cash on Delivery");
+    </script>
+</body>
+
+</html>

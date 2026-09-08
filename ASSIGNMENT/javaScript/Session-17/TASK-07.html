@@ -1,0 +1,163 @@
+<!-- Simulate a notification feed like YouTube, where each notification card has a 'Dismiss' button. When you click 'Dismiss', fade out and remove the card. Make sure the event delegation works for dynamically loaded notifications as well as those present at page load. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YouTube Notification Feed</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: white;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #ff0000;
+        }
+
+        .add-btn {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: none;
+            background: #ff0000;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-btn:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+
+        #feed {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .notification {
+            background: #ffffff;
+            color: #333;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border-left: 5px solid #ff0000;
+        }
+
+        .notification:hover {
+            transform: translateY(-3px);
+        }
+
+        .dismiss-btn {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .dismiss-btn:hover {
+            background: darkred;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+
+        span {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>🔔 YouTube Notifications</h2>
+
+        <button class="add-btn" id="addBtn">+ Add Notification</button>
+
+        <div id="feed">
+
+            <div class="notification">
+                <span>New video uploaded: JavaScript Tutorial</span>
+                <button class="dismiss-btn">Dismiss</button>
+            </div>
+
+            <div class="notification">
+                <span>Your channel got 100 views!</span>
+                <button class="dismiss-btn">Dismiss</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const feed = document.getElementById("feed");
+        const addBtn = document.getElementById("addBtn");
+
+        function createNotification(text) {
+            const div = document.createElement("div");
+            div.classList.add("notification");
+            div.innerHTML = `
+        <span>${text}</span>
+        <button class="dismiss-btn">Dismiss</button>
+    `;
+            return div;
+        }
+
+        addBtn.addEventListener("click", function () {
+            const messages = [
+                "New subscriber joined your channel!",
+                "Video reached 1K views!",
+                "You got a new comment!",
+                "Trending video alert!",
+                "Someone liked your video!"
+            ];
+
+            const random = messages[Math.floor(Math.random() * messages.length)];
+            feed.appendChild(createNotification(random));
+        });
+
+        feed.addEventListener("click", function (e) {
+            if (e.target.classList.contains("dismiss-btn")) {
+                const card = e.target.parentElement;
+
+                card.classList.add("fade-out");
+
+                setTimeout(() => {
+                    card.remove();
+                }, 400);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

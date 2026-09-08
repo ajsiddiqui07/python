@@ -1,0 +1,56 @@
+<!-- Create an HTML file with a <script> tag and use setTimeout to display a 'Loading your feed...' message after 2 seconds, then replace it with 'Feed loaded!' after another 2 seconds. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>setTimeout</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    #message {
+        font-size: 20px;
+        padding: 10px 20px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>setTimeout --- Feed Loader</h1>
+<h2 id="message"></h2>
+
+<script>
+let message = document.getElementById("message");
+
+setTimeout( () => {
+    message.textContent = "Loading your feed... arbaz";
+
+    setTimeout( ()=>{
+        message.textContent = "Feed loaded arbaz!";
+    }, 2000);
+
+}, 2000);
+</script>
+
+</body>
+</html>

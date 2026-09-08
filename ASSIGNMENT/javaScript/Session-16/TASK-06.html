@@ -1,0 +1,27 @@
+
+<!-- Given an array of YouTube video objects with a views property, use the find() method to get the first video that has more than 1 million views. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const videos = [
+            { id: 1, title: "Intro to JS", views: 500000 },
+            { id: 2, title: "Advanced JS", views: 1200000 },
+            { id: 3, title: "React Tutorial", views: 900000 },
+            { id: 4, title: "Node.js Basics", views: 2000000 }
+        ];
+
+        const firstMillionViewVideo = videos.find(video => video.views > 1000000);
+
+        console.log(firstMillionViewVideo);
+    </script>
+</body>
+
+</html>

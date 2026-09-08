@@ -1,0 +1,26 @@
+<!-- Use ChatGPT to suggest a one-liner alternative using map() and reduce() for calculating the total amount spent from an array of transactions (each with amount property), and then implement that one-liner in your code. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const transactions = [
+            { id: 1, amount: 850 },
+            { id: 2, amount: 1500 },
+            { id: 3, amount: 950 },
+            { id: 4, amount: 450 }
+        ];
+
+        const totalSpent = transactions.map(t => t.amount).reduce((a, b) => a + b, 0);
+
+        console.log(totalSpent);
+    </script>
+</body>
+
+</html>

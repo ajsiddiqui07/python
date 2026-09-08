@@ -1,0 +1,41 @@
+<!-- Create a function validateUsername(username) that checks if the username contains only letters and numbers; if not, use throw to raise a custom Error with the message 'Invalid Username'. Wrap the function call in try...catch and display the error message in the console. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Username</title>
+</head>
+
+<body>
+
+    <script>
+        function validateusername(username) {
+            let pattern = /^[A-Za-z0-9]+$/;
+
+            if (!pattern.test(username)) {
+                throw new Error('Invalid Username');
+            }
+
+            return true;
+        }
+
+        try {
+            validateusername('Uday123');
+            console.log('Valid Username');
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        try {
+            validateusername('Uday@123');
+            console.log('Valid Username');
+        } catch (error) {
+            console.error(error.message);
+        }
+    </script>
+
+</body>
+
+</html>

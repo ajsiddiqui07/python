@@ -1,0 +1,28 @@
+<!-- Write an arrow function called getFollowersSummary that takes any number of follower counts (using the rest operator), sums them, and returns a string like 'Total followers: 1200'. Call it with 3 sample numbers to test -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const getFollowersSummary = (...followers) => {
+            let total = 0;
+
+            for (let i = 0; i < followers.length; i++) {
+                total += followers[i];
+            }
+
+            return `Total followers: ${total}`;
+        };
+
+
+        console.log(getFollowersSummary(300, 400, 500));
+    </script>
+</body>
+
+</html>
