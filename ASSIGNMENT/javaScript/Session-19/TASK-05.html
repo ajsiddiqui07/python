@@ -1,0 +1,89 @@
+<!-- Display the list of playlists below the form, showing each playlist's name and description, and update the display every time a new playlist is added. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Enter playlist name</h1>
+    <input type="text" id="name" placeholder="Enter playlist name">
+    <h1>Enter playlist discription</h1>
+    <textarea name="" id="discription" placeholder="Enter playlist description"></textarea><br>
+
+
+    <button  id="btn"> add Playlist</button>
+
+    <div id="showlist">
+        
+    </div>
+    <script>
+
+       
+        const btn = document.getElementById("btn")
+        const songplaylist = [] 
+
+        function deleteplaylist(index){
+                console.log(songplaylist[index]);
+                songplaylist.splice(index,1)
+                displayplaylist()
+                
+                
+            }
+        
+        function editplaylist(index) {
+            const newsongname = prompt("enter new playlist name",songplaylist[index].name)
+            const newdiscriptionname = prompt("enter new playlist name",songplaylist[index].discription)
+            
+            songplaylist[index].name=newsongname;
+            songplaylist[index].discription=newdiscriptionname;
+
+            displayplaylist()
+        }
+        
+        function displayplaylist(){
+            showlist.innerHTML=""
+            songplaylist.forEach((song,index) => {
+                showlist.innerHTML += `
+                <div>
+                    
+                    <h3>${song.name}</h3> 
+                    <p>${song.discription}</p>
+                    <button type="button" onclick="deleteplaylist(${index})">delete</button>
+                    <button type="button" onclick='editplaylist(${index})'>edit</button>    
+                </div>
+                <hr>
+                `
+            });
+        }
+        
+        btn.addEventListener("click",(e)=>{
+            const name = document.getElementById("name").value
+            const discription = document.getElementById("discription").value
+            const showlist = document.getElementById("showlist")
+
+            
+            
+            const playlist = {
+                "name":name,
+                "discription":discription
+            }
+            
+            
+            songplaylist.push(playlist)
+
+            showlist.innerHTML=""
+            showlist.innerHTML= "<h3>My Play List</h3>"
+            displayplaylist()
+            
+            document.getElementById("name").value = ""
+            document.getElementById("discription").value = ""
+            
+
+        })
+        
+    </script>
+    
+</body>
+</html>

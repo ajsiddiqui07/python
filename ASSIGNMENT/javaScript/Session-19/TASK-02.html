@@ -1,0 +1,51 @@
+             ┌──────────────────────┐
+             │    Add Item Form     │
+             │                      │
+             │ Product Name         │
+             │ Product Price        │
+             │ Product Description  │
+             │ [ Add to Wishlist ]  │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │     JavaScript       │
+             │                      │
+             │ Create Item Object   │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │       Storage        │
+             │                      │
+             │  Wishlist Array      │
+             │       OR             │
+             │    localStorage      │
+             └──────────┬───────────┘
+                        │
+                        ▼
+             ┌──────────────────────┐
+             │    Display List      │
+             │                      │
+             │ 📱 iPhone   ₹50,000  │
+             │    [Edit] [Delete]   │
+             │                      │
+             │ 👟 Shoes    ₹2,000   │
+             │    [Edit] [Delete]   │
+             └──────────┬───────────┘
+                        │
+              ┌─────────┴─────────┐
+              ▼                   ▼
+        ┌───────────┐       ┌───────────┐
+        │   EDIT    │       │  DELETE   │
+        └─────┬─────┘       └─────┬─────┘
+              │                   │
+              ▼                   ▼
+        Update Array         Remove Item
+              │                   │
+              └─────────┬─────────┘
+                        ▼
+                  Re-render UI
+                        │
+                        ▼
+                 Updated List
