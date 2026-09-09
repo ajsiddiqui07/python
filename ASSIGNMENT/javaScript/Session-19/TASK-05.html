@@ -1,4 +1,4 @@
-<!-- Display the list of playlists below the form, showing each playlist's name and description, and update the display every time a new playlist is added. -->
+<!-- Add 'Edit' and 'Delete' buttons next to each playlist in the displayed list, and implement the JavaScript functions so users can update or remove a playlist from the array and see the changes instantly -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +44,7 @@
         
         function displayplaylist(){
             showlist.innerHTML=""
+            showlist.innerHTML= "<h3>My Play List</h3>"
             songplaylist.forEach((song,index) => {
                 showlist.innerHTML += `
                 <div>
