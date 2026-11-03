@@ -1,0 +1,21 @@
+1. Create a Firebase project in the Firebase Console and register the React web app.
+
+2. Install the Firebase package using the command `npm install firebase`.
+
+3. Initialize Firebase in a separate `firebase.js` file using the Firebase configuration.
+
+4. Open Firebase Console, navigate to Authentication, and click Get Started.
+
+5. Open the Sign-in method section and enable Email/Password authentication.
+
+6. Create a registration form in React to collect the user's email and password.
+
+7. Use Firebase Authentication's `createUserWithEmailAndPassword()` method to register new users.
+
+8. Create a login form and use `signInWithEmailAndPassword()` to authenticate existing users.
+
+9. Use `onAuthStateChanged()` to check whether a user is logged in and update the UI accordingly.
+
+10. Add a Logout button and use `signOut()` to log the user out.
+
+11. Test registration, login, logout, and invalid credentials to verify that authentication works correctly.

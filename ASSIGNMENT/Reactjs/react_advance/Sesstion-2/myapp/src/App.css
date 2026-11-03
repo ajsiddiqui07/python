@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #222;
+}
+
+.app {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.app-header {
+  padding: 25px 15px;
+  margin-bottom: 25px;
+  text-align: center;
+  background: #172554;
+  color: white;
+  border-radius: 0 0 12px 12px;
+}
+
+.app-header h1 {
+  margin-bottom: 8px;
+}
+
+section {
+  margin-bottom: 25px;
+}
+
+.card {
+  padding: 20px;
+  margin-bottom: 18px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.movie-grid,
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+}
+
+.movie-card,
+.product-card {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+.movie-card img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.movie-card h3,
+.product-card h3 {
+  font-size: 16px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.like-button {
+  background: #6b7280;
+}
+
+.liked-button {
+  background: #dc2626;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.post-card {
+  max-width: 500px;
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: 95%;
+  }
+
+  .app-header h1 {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+}

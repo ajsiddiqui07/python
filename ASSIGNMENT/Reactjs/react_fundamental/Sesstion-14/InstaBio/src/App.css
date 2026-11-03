@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #222;
+}
+
+.app {
+  width: min(90%, 600px);
+  margin: 40px auto;
+  text-align: center;
+}
+
+.profile-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  margin-bottom: 8px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 12px;
+}
+
+.social-links a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #e5e7eb;
+  color: #222;
+}
+
+.social-links.dark {
+  background: #222;
+}
+
+.social-links.dark a {
+  background: #444;
+  color: white;
+}
+
+.social-links.light {
+  background: white;
+}
+
+.projects {
+  margin-top: 35px;
+}
+
+.project-card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2563eb;
+}

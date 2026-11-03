@@ -1,0 +1,1 @@
+export default function About(){return <><h1>About Insta News</h1><p>A sample social news feed built with Next.js.</p></>}

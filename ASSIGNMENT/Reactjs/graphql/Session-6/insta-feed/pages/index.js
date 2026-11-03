@@ -1,0 +1,1 @@
+export default function Home({renderedAt}){return <main><h1>Welcome to Insta Feed!</h1><p>Created by: arbaz siddiqui </p><small>Server-rendered at: {renderedAt}</small></main>}export async function getServerSideProps(){return {props:{renderedAt:new Date().toISOString()}}}

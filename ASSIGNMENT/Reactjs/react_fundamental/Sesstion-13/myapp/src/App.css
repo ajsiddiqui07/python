@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #2563eb;
+}
+
+section {
+  margin: 25px 0;
+}
+
+.profile-card {
+  width: 280px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-card h2 {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.status {
+  color: #666;
+  font-size: 14px;
+}

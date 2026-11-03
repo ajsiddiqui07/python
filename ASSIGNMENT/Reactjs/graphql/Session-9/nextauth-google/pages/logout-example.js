@@ -1,0 +1,1 @@
+import {signOut} from 'next-auth/react';export default function LogoutExample(){return <><h1>Logout example</h1><button onClick={()=>signOut({callbackUrl:'/'})}>Log out and go to homepage</button></>}

@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container.light {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+.app-container.dark {
+  background-color: #181818;
+  color: #f5f5f5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar.light {
+  background-color: #ffffff;
+  color: #222;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar.dark {
+  background-color: #292929;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+}
+
+.main-content {
+  width: min(90%, 650px);
+  margin: 35px auto;
+  text-align: center;
+}
+
+.theme-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #6558d3;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  opacity: 0.9;
+}
+
+.feed {
+  margin-top: 35px;
+  text-align: left;
+}
+
+.post-list {
+  margin-top: 15px;
+}
+
+.post-card {
+  padding: 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.post-card.light {
+  background-color: white;
+  color: #222;
+  border: 1px solid #ddd;
+}
+
+.post-card.dark {
+  background-color: #292929;
+  color: white;
+  border: 1px solid #444;
+}
+
+.like-button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.theme-label {
+  font-size: 13px;
+  opacity: 0.8;
+}

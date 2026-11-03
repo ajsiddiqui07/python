@@ -1,0 +1,1 @@
+Conclusion: GraphQL gives clients more control over which data they request, helping reduce unnecessary data transfer and, in some cases, the number of API requests. REST can also support these features through suitable endpoint design.

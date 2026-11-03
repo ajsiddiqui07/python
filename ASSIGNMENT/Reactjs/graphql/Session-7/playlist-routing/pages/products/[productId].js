@@ -1,0 +1,1 @@
+import {useRouter} from 'next/router'; export default function Product({productId}){const router=useRouter();return <><h1>Flipkart Product</h1><p>Custom message: You are viewing product {router.query.productId || productId}.</p></>} export async function getServerSideProps({params}){return {props:{productId:params.productId}}}

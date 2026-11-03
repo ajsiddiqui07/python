@@ -1,0 +1,1 @@
+export default function Home(){return <main><h1>Insta News</h1><p>Visit <a href="/feed">Feed</a> or <a href="/about">About</a>.</p></main>}

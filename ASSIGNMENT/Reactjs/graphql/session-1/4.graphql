@@ -1,0 +1,6 @@
+{
+  movie(title: "Inception") {
+    title
+    poster
+  }
+}

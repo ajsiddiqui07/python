@@ -1,0 +1,1 @@
+export default function Explore(){return <main><h1>Explore Trending Reels</h1><p>SSR can fetch trending content on the server for each request and send ready-to-render HTML, helping visitors see current reels sooner.</p></main>}

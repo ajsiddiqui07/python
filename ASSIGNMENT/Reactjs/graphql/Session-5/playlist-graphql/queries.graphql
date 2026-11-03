@@ -1,0 +1,24 @@
+# Q2/Q3: nested playlist query
+query PlaylistDetails {
+  playlist(id: "p1") {
+    id
+    name
+    songs { title artist }
+  }
+}
+
+# Q4: song duration
+query AllSongsWithDuration {
+  songs { title duration }
+}
+
+# Q5: introspection examples
+query ExploreTypes {
+  __schema {
+    types {
+      name
+      kind
+      fields { name }
+    }
+  }
+}

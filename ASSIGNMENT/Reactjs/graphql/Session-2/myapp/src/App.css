@@ -1,0 +1,96 @@
+.App {
+  min-height: 100vh;
+  padding: 30px 15px;
+  background-color: #f4f6f9;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.App > h1 {
+  color: #2563eb;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 320px;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 22px;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: #222;
+}
+
+.card p {
+  color: #666;
+}
+
+.card button {
+  padding: 9px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.card button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.like-button {
+  background-color: #ffe4e6;
+  color: #e11d48;
+  font-size: 22px !important;
+}
+
+.quantity-controls,
+.vote-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.quantity-controls button {
+  background-color: #2874f0;
+  color: white;
+  font-size: 20px;
+  min-width: 42px;
+}
+
+.quantity-controls span,
+.vote-count {
+  font-size: 20px;
+  font-weight: bold;
+  min-width: 25px;
+}
+
+.vote-controls button {
+  background-color: #e8f5e9;
+  color: #237a35;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.card .star {
+  padding: 2px;
+  background: transparent;
+  color: #ccc;
+  font-size: 35px;
+}
+
+.card .star.selected {
+  color: #f5a623;
+}

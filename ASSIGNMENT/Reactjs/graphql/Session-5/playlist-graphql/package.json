@@ -1,0 +1,14 @@
+{
+  "name": "session-5-playlist-graphql",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.13.0",
+    "graphql": "^16.14.2"
+  },
+  "type": "module"
+}

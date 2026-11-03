@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container.light {
+  background-color: #f4f6f9;
+  color: #222;
+}
+
+.app-container.dark {
+  background-color: #181818;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 30px;
+  background-color: #2874f0;
+  color: white;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.login-status {
+  display: block;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.main-content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+.main-content > h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.theme-box,
+.notification-box {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.theme-box.light,
+.notification-box {
+  background-color: #fff;
+  color: #222;
+}
+
+.theme-box.dark {
+  background-color: #303030;
+  color: #fff;
+  border-color: #555;
+}
+
+.deep-child {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px dashed #888;
+}
+
+button {
+  padding: 10px 16px;
+  margin: 5px 8px 5px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #2874f0;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover:not(:disabled) {
+  background-color: #1558bd;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 15px;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+}

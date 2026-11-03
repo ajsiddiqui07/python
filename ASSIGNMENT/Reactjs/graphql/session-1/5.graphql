@@ -1,0 +1,10 @@
+mutation {
+  createPlaylist(
+    name: "My Favorites"
+    description: "My favorite songs"
+  ) {
+    id
+    name
+    description
+  }
+}

@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 30px;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #2563eb;
+}
+
+section {
+  margin: 30px auto;
+}
+
+.product-card {
+  width: 280px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h2 {
+  color: #222;
+}
+
+.product-card p {
+  color: #15803d;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-card {
+  width: 280px;
+  margin: 20px auto;
+  padding: 25px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.profile-picture {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e1306c;
+}
+
+.profile-card h2 {
+  color: #222;
+}
+
+.profile-card p {
+  color: #555;
+}
+
+.profile-card button {
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.profile-card button:hover {
+  background-color: #1d4ed8;
+}

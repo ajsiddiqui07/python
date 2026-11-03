@@ -1,0 +1,1 @@
+export const componentsFolderPlaceholder = "Reusable UI components belong here.";

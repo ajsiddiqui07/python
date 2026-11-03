@@ -1,0 +1,16 @@
+{
+  pokemon(name: "pikachu") {
+    name
+    types {
+      type {
+        name
+      }
+    }
+    stats {
+      base_stat
+      stat {
+        name
+      }
+    }
+  }
+}
