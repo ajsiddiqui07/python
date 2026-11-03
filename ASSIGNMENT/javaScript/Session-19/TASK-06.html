@@ -1,0 +1,101 @@
+
+<!-- Display the list of added restaurants below the form, showing name, cuisine, and rating for each, with Edit and Delete buttons next to each entry. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <h1>Enter order name</h1>
+    <input type="text" id="name" placeholder="Enter order name">
+    <h1>Enter Cuisine name</h1>
+    <textarea name="" id="discription" placeholder="Enter Cuisine description"></textarea><br>
+    <h1>Enter rating</h1>
+    <input type="text" id="rating" placeholder="Enter rating">
+
+
+    <button  id="btn"> add Playlist</button>
+
+    <div id="showlist">
+        
+    </div>
+    <script>
+
+       
+        const btn = document.getElementById("btn")
+        const orderlist = [] 
+
+        function deleteorderlist(index){
+                console.log(orderlist[index]);
+                orderlist.splice(index,1)
+                displayplaylist()
+                
+                
+            }
+        
+        function editorderlist(index) {
+            const newsongname = prompt("enter new orderlist name",orderlist[index].name)
+            const newdiscriptionname = prompt("enter new Cuisine name",orderlist[index].discription)
+            const newratingname = prompt("enter new orderlist name",orderlist[index].rating)
+            
+            orderlist[index].name=newsongname;
+            orderlist[index].discription=newdiscriptionname;
+            orderlist[index].rating=newratingname;
+
+            displayplaylist()
+        }
+        
+        function displayplaylist(){
+            showlist.innerHTML=""
+            showlist.innerHTML= "<h3>My product List</h3>"
+            orderlist.forEach((food,index) => {
+                showlist.innerHTML += `
+                <div>
+                    
+                    <h3>${food.name}</h3> 
+                    <p>${food.discription}</p>
+                    <p>${food.rating}</p>
+                    <button type="button" onclick="deleteorderlist(${index})">delete</button>
+                    <button type="button" onclick='editorderlist(${index})'>edit</button>    
+                </div>
+                <hr>
+                `
+            });
+        }
+        
+        btn.addEventListener("click",(e)=>{
+            const name = document.getElementById("name").value
+            const discription = document.getElementById("discription").value
+            const rating = document.getElementById("rating").value
+
+            
+            
+            const foodlist = {
+                "name":name,
+                "discription":discription,
+                "rating":rating
+
+            }
+            
+            
+            orderlist.push(foodlist)
+
+            showlist.innerHTML=""
+            
+            displayplaylist()
+            
+            document.getElementById("name").value = ""
+            document.getElementById("discription").value = ""
+            document.getElementById("rating").value = ""
+            
+
+        })
+        
+    </script>
+    
+
+</body>
+</html>

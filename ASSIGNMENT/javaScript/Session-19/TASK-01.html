@@ -1,0 +1,47 @@
+
+<!-- Create an HTML file with a simple form that lets a user add a new playlist (name, description) like Spotify's 'Create Playlist' feature, and use JavaScript to store the playlist data in an array. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Enter playlist name</h1>
+    <input type="text" id="name" placeholder="Enter playlist name">
+    <h1>Enter playlist discription</h1>
+    <textarea name="" id="discription" placeholder="Enter playlist description"></textarea><br>
+
+
+    <button  id="btn"> add Playlist</button>
+    <script>
+
+       
+        const btn = document.getElementById("btn")
+        const songplaylist = [] 
+        
+        btn.addEventListener("click",(e)=>{
+             const name = document.getElementById("name").value
+            const discription = document.getElementById("discription").value
+            console.log(`name${name}`);
+            const playlist = {
+                "name":name,
+                "discription":discription
+            }
+            
+            
+            songplaylist.push(playlist)
+
+            console.log(songplaylist);
+            console.log("hello");
+            
+            document.getElementById("name").value = " "
+            document.getElementById("discription").value = " "
+            
+
+        })
+        
+    </script>
+</body>
+</html>
