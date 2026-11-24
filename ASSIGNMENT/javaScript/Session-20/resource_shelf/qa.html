@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resource Shelf - Form validation QA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .qa-shell { width: min(820px, calc(100% - 40px)); margin: 60px auto; }
+      .qa-panel { padding: 28px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+      .qa-panel h1 { margin: 0 0 8px; letter-spacing: -0.04em; }
+      .qa-panel > p { color: var(--muted); font-size: 14px; }
+      .qa-table { width: 100%; margin-top: 24px; border-collapse: collapse; font-size: 13px; }
+      .qa-table th, .qa-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+      .qa-table th { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+      .qa-status { color: #32815d; font-weight: 750; }
+      .qa-status.fail { color: var(--danger); }
+      @media (max-width: 560px) { .qa-table { font-size: 11px; } .qa-table th, .qa-table td { padding: 10px 5px; } }
+    </style>
+    <script src="validate.js"></script>
+  </head>
+  <body>
+    <main class="qa-shell">
+      <a class="brand" href="./index.html"><span class="brand-mark" aria-hidden="true">R</span><span>Resource Shelf</span></a>
+      <section class="qa-panel">
+        <p class="eyebrow">QUALITY CHECK</p>
+        <h1>Form validation tests</h1>
+        <p>Each input is checked against the required form validation result.</p>
+        <table class="qa-table">
+          <thead><tr><th>Input</th><th>Expected</th><th>Actual</th><th>Result</th></tr></thead>
+          <tbody id="qaResults"></tbody>
+        </table>
+      </section>
+    </main>
+    <script>
+      const cases = [
+        { input: { title: "", subject: "Maths" }, expected: "Enter a title" },
+        { input: { title: "Hi", subject: "Maths" }, expected: "Title must be 3 to 60 characters" },
+        { input: { title: "A".repeat(61), subject: "Maths" }, expected: "Title must be 3 to 60 characters" },
+        { input: { title: "Algebra", subject: "" }, expected: "Choose a subject" },
+        { input: { title: "Algebra Notes", subject: "Maths" }, expected: "" },
+        { input: { title: "  Algebra Notes  ", subject: "  Maths  " }, expected: "" },
+      ];
+
+      const report = cases.map((test) => {
+        const actual = validateForm(test.input);
+        const passed = actual === test.expected;
+        return {
+          input: JSON.stringify(test.input),
+          expected: test.expected || "(empty)",
+          actual: actual || "(empty)",
+          result: passed ? "PASS" : "FAIL",
+        };
+      });
+
+      console.table(report);
+
+      const results = document.querySelector("#qaResults");
+      for (const test of report) {
+        const row = document.createElement("tr");
+        for (const value of [test.input, test.expected, test.actual, test.result]) {
+          const cell = document.createElement("td");
+          cell.textContent = value;
+          row.append(cell);
+        }
+        row.lastElementChild.className = `qa-status${test.result === "PASS" ? "" : " fail"}`;
+        results.append(row);
+      }
+    </script>
+  </body>
+</html>

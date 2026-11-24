@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>Resource Shelf</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="validate.js"></script>
+    <script src="theme.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Resource Shelf home">
+          <span class="brand-mark" aria-hidden="true">R</span>
+          <span>Resource Shelf</span>
+        </a>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+          <span>Dark mode</span>
+        </button>
+      </header>
+
+      <section class="intro" aria-labelledby="pageTitle">
+        <p class="eyebrow">YOUR PERSONAL LIBRARY</p>
+        <h1 id="pageTitle">Keep good resources close.</h1>
+        <p class="intro-copy">Save the links you want to come back to, all in one place.</p>
+      </section>
+
+      <section class="workspace" aria-label="Manage your resources">
+        <form id="resourceForm" class="resource-form" novalidate>
+          <div class="form-heading">
+            <div>
+              <p class="eyebrow">BUILD YOUR COLLECTION</p>
+              <h2 id="formTitle">Add a resource</h2>
+            </div>
+            <span class="form-step" aria-hidden="true">01</span>
+          </div>
+
+          <label for="resourceTitle">Resource title</label>
+          <input id="resourceTitle" name="title" type="text" placeholder="e.g. The math of everything" required>
+
+          <label for="resourceUrl">URL</label>
+          <input id="resourceUrl" name="url" type="url" placeholder="https://example.com" required>
+          <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
+
+          <label for="resourceSubject">Subject</label>
+          <input id="resourceSubject" name="subject" type="text" placeholder="e.g. Mathematics" required>
+
+          <div class="form-actions">
+            <button id="submitButton" class="button button-primary" type="submit">Add resource</button>
+            <button id="cancelEdit" class="button button-quiet" type="button" hidden>Cancel</button>
+          </div>
+          <p class="form-note">Your resources are saved on this device.</p>
+        </form>
+
+        <section class="shelf-panel" aria-labelledby="shelfTitle">
+          <div class="shelf-heading">
+            <div>
+              <p class="eyebrow">SAVED FOR LATER</p>
+              <h2 id="shelfTitle">Your shelf <span id="resourceCount" class="count-badge">0</span></h2>
+            </div>
+            <span class="shelf-caption">A little knowledge goes a long way.</span>
+          </div>
+          <div id="shelf" class="resource-grid" aria-live="polite"></div>
+          <div id="emptyState" class="empty-state">
+            <span class="empty-icon" aria-hidden="true">↗</span>
+            <h3>Your shelf is waiting.</h3>
+            <p>Add a resource to start building your collection.</p>
+          </div>
+        </section>
+      </section>
+      <footer class="footer">A thoughtful place for things worth learning.</footer>
+    </main>
+  </body>
+</html>
