@@ -1,8 +1,12 @@
+
 import { useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
+
 import { auth } from "../firebase.js";
 
 export default function AuthScreen() {
@@ -16,11 +20,20 @@ export default function AuthScreen() {
     event.preventDefault();
     setBusy(true);
     setError("");
+
     try {
       if (mode === "signup") {
-        await createUserWithEmailAndPassword(auth, email.trim(), password);
+        await createUserWithEmailAndPassword(
+          auth,
+          email.trim(),
+          password
+        );
       } else {
-        await signInWithEmailAndPassword(auth, email.trim(), password);
+        await signInWithEmailAndPassword(
+          auth,
+          email.trim(),
+          password
+        );
       }
     } catch (authError) {
       setError(authError.code?.replace("auth/", "").replaceAll("-", " ") || "Unable to authenticate.");
@@ -29,20 +42,86 @@ export default function AuthScreen() {
     }
   }
 
+  async function googleLogin() {
+    setBusy(true);
+    setError("");
+
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+    } catch (authError) {
+      setError(authError.code?.replace("auth/", "").replaceAll("-", " ") || "Google login failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   return (
     <main className="auth-page">
       <section className="auth-card">
+
         <p className="eyebrow">FEE TRACKER</p>
-        <h1>{mode === "signin" ? "Welcome back" : "Create your account"}</h1>
+
+        <h1>
+          {mode === "signin" ? "Welcome back" : "Create your account"}
+        </h1>
+
         <form onSubmit={submit}>
-          <label>Email<input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required /></label>
-          <label>Password<input type="password" minLength={6} value={password} onChange={(event) => setPassword(event.target.value)} required /></label>
+          <label>
+            Email
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              type="password"
+              minLength={6}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+          </label>
+
           {error && <p className="error" role="alert">{error}</p>}
-          <button className="primary" disabled={busy}>{busy ? "Please wait..." : mode === "signin" ? "Sign in" : "Sign up"}</button>
+
+          <button className="primary" disabled={busy}>
+            {busy
+              ? "Please wait..."
+              : mode === "signin"
+                ? "Sign in"
+                : "Sign up"}
+          </button>
         </form>
-        <button className="link" onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setError(""); }}>
-          {mode === "signin" ? "Create account" : "Already have an account?"}
+
+        <p>OR</p>
+
+        <button
+          type="button"
+          onClick={googleLogin}
+          disabled={busy}
+        >
+          Continue with Google
         </button>
+
+        <button
+          className="link"
+          type="button"
+          onClick={() => {
+            setMode(mode === "signin" ? "signup" : "signin");
+            setError("");
+          }}
+        >
+          {mode === "signin"
+            ? "Create account"
+            : "Already have an account?"}
+        </button>
+
       </section>
     </main>
   );
