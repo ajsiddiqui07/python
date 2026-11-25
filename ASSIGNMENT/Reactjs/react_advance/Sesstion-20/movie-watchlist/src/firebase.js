@@ -4,13 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCJEjjGeMC1c-hnah0qsEoG_esrCKivBPQ",
-  authDomain: "playlist-802b4.firebaseapp.com",
-  projectId: "playlist-802b4",
-  storageBucket: "playlist-802b4.firebasestorage.app",
-  messagingSenderId: "34578726685",
-  appId: "1:34578726685:web:4f7b332d9e77767267abf4",
-  measurementId: "G-W50GEFYPCC"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const missing = Object.entries(firebaseConfig)
