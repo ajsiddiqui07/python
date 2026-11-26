@@ -1,0 +1,6 @@
+Kiran Patel: EMI ₹8125.61
+Asha Verma: EMI ₹10500.93
+Rohan Mehta,300000,0,24 -> Error: interest rate cannot be zero
+Priya Nair,450000,8.75,sixty -> Error: invalid numeric value
+Vikram Desai,400000,9.0 -> Error: missing field(s) in record
+Sneha Kulkarni: EMI ₹15565.65

@@ -1,0 +1,13 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Payment Successful — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Payment Status</h1>
+<div class="detail-card">
+    <p class="success-msg">Booking #{{ booking.pk }} for <strong>{{ booking.pg.name }}</strong> is <strong>{{ booking.status }}</strong>.</p>
+    <p><strong>Amount:</strong> ₹{{ booking.token_amount }}</p>
+    <p><strong>Remaining Available Beds:</strong> {{ booking.pg.available_beds }}</p>
+</div>
+<p><a href="{% url 'pg_detail' booking.pg.pk %}">View PG Details</a> | <a href="{% url 'dashboard' %}">Go to Dashboard</a></p>
+{% endblock %}

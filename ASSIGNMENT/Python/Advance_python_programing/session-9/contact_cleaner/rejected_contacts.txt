@@ -1,0 +1,6 @@
+Rohan Desai,5000012345,400020 | Reason: invalid mobile number
+Priya Shah,9000034567,056001 | Reason: invalid PIN code
+Kabir Verma,900004567,560038 | Reason: invalid mobile number
+Sneha Iyer,9000056789,38O015 | Reason: invalid PIN code
+Meera Joshi,7700022233,3800155 | Reason: invalid PIN code
+Siddharth Kulkarni,12345,000111 | Reason: invalid mobile number and invalid PIN code

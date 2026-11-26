@@ -1,0 +1,13 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Sign up — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Create an Account</h1>
+
+<form method="post" class="stay-form" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Sign up</button>
+</form>
+{% endblock %}

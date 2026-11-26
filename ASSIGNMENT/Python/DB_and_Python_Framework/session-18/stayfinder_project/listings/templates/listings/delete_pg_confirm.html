@@ -1,0 +1,15 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Delete {{ pg.name }} — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Confirm Delete</h1>
+<div class="detail-card">
+    <p>Are you sure you want to delete <strong>{{ pg.name }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-primary" style="background-color: #dc2626;">Confirm Delete</button>
+        <a href="{% url 'pg_list' %}" style="margin-left: 12px;">Cancel</a>
+    </form>
+</div>
+{% endblock %}

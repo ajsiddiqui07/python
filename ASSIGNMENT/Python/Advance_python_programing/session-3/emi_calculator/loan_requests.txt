@@ -1,0 +1,6 @@
+Kiran Patel,250000,10.5,36
+Asha Verma,500000,9.5,60
+Rohan Mehta,300000,0,24
+Priya Nair,450000,8.75,sixty
+Vikram Desai,400000,9.0
+Sneha Kulkarni,600000,11.2,48

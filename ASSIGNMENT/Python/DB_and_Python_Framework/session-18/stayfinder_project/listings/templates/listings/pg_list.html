@@ -1,0 +1,57 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+
+{% block title %}PG Listings — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Available PGs &amp; Hostels</h1>
+<p><a href="{% url 'add_pg' %}">+ Add PG</a></p>
+
+{% csrf_token %}
+<div id="msg" style="display: none;"></div>
+
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Locality</th>
+            <th>Monthly Rent</th>
+            <th>Gender Type</th>
+            <th>Available Beds</th>
+            <th>Quick Update</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pg in pgs %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                {% if pg.photo %}
+                    <img src="{{ pg.photo.url }}" alt="{{ pg.name }}" width="80" height="80" style="object-fit: cover;">
+                {% else %}
+                    No photo
+                {% endif %}
+            </td>
+            <td><a href="{% url 'pg_detail' pg.pk %}">{{ pg.name }}</a></td>
+            <td>{{ pg.locality }}</td>
+            <td class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</td>
+            <td>{{ pg.gender_type }}</td>
+            <td class="beds-cell">{{ pg.available_beds }}</td>
+            <td>
+                <input type="number" class="beds-input" value="{{ pg.available_beds }}" style="width: 60px;">
+                <button type="button" class="save-beds-btn" data-pk="{{ pg.pk }}">Save</button>
+            </td>
+            <td>
+                <a href="{% url 'edit_pg' pg.pk %}">Edit</a> |
+                <a href="{% url 'delete_pg' pg.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="{% static 'listings/js/beds.js' %}"></script>
+{% endblock %}

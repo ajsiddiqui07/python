@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StayFinder{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'listings/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="brand">StayFinder</span>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'pg_list' %}">All PGs</a>
+            <a href="{% url 'visit_request' %}">Book Visit</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

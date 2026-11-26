@@ -1,0 +1,27 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}PG Listings — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Available PGs &amp; Hostels</h1>
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Monthly Rent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pg in pgs %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'pg_detail' pg_id=forloop.counter %}">{{ pg.name }}</a></td>
+            <td>{{ pg.area }}</td>
+            <td class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

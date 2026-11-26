@@ -1,0 +1,14 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Add Locality — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Add New Locality</h1>
+
+<form method="post" class="stay-form" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Save Locality</button>
+</form>
+<p><a href="{% url 'add_pg' %}">← Back to Add PG</a></p>
+{% endblock %}

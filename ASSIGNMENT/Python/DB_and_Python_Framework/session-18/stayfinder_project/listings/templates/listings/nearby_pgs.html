@@ -1,0 +1,54 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Nearby PGs — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Nearby PGs</h1>
+
+{% if error %}
+<p class="errorlist">{{ error }}</p>
+{% endif %}
+
+<form method="get" class="stay-form" style="margin-bottom: 20px;">
+    <p>
+        <label for="id_lat">Latitude:</label>
+        <input type="text" id="id_lat" name="lat" value="{{ lat }}">
+    </p>
+    <p>
+        <label for="id_lng">Longitude:</label>
+        <input type="text" id="id_lng" name="lng" value="{{ lng }}">
+    </p>
+    <p>
+        <label for="id_radius">Radius (km):</label>
+        <input type="text" id="id_radius" name="radius_km" value="{{ radius_km }}">
+    </p>
+    <button type="submit" class="btn-primary">Find Nearby PGs</button>
+</form>
+
+{% if not error %}
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>PG Name</th>
+            <th>Locality</th>
+            <th>Monthly Rent</th>
+            <th>Distance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in results %}
+        <tr>
+            <td><a href="{% url 'pg_detail' item.pg.pk %}">{{ item.pg.name }}</a></td>
+            <td>{{ item.pg.locality }}</td>
+            <td>₹{{ item.pg.monthly_rent }}</td>
+            <td>{{ item.distance|floatformat:1 }} km</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No PGs with coordinates found within {{ radius_km }} km.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

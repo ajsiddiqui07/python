@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Book a Visit — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Book a PG Visit</h1>
+
+{% if thank_you %}
+<p class="success-msg">{{ thank_you }}</p>
+{% endif %}
+
+<form method="post" class="stay-form" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Submit Visit Request</button>
+</form>
+{% endblock %}

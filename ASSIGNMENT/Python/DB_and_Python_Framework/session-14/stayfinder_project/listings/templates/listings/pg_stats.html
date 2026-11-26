@@ -1,0 +1,32 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}PG Statistics — StayFinder{% endblock %}
+
+{% block content %}
+<h1>StayFinder Statistics</h1>
+
+<div class="detail-card" style="margin-bottom: 20px;">
+    <p><strong>Total PGs:</strong> {{ stats.pg_total }}</p>
+    <p><strong>Average Rent:</strong> ₹{{ stats.monthly_rent__avg|floatformat:0|default:"0" }}</p>
+    <p><strong>Minimum Rent:</strong> ₹{{ stats.monthly_rent__min|floatformat:0|default:"0" }}</p>
+    <p><strong>Maximum Rent:</strong> ₹{{ stats.monthly_rent__max|floatformat:0|default:"0" }}</p>
+</div>
+
+<h2>PGs per Locality</h2>
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>Locality</th>
+            <th>PG Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for loc in localities %}
+        <tr>
+            <td>{{ loc }}</td>
+            <td>{{ loc.pg_count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

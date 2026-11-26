@@ -1,0 +1,37 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}PG Listings — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Available PGs &amp; Hostels</h1>
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Locality</th>
+            <th>Monthly Rent</th>
+            <th>Gender Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pg in pgs %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                {% if pg.photo %}
+                    <img src="{{ pg.photo.url }}" alt="{{ pg.name }}" width="80" height="80" style="object-fit: cover;">
+                {% else %}
+                    No photo
+                {% endif %}
+            </td>
+            <td>{{ pg.name }}</td>
+            <td>{{ pg.locality }}</td>
+            <td class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</td>
+            <td>{{ pg.gender_type }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

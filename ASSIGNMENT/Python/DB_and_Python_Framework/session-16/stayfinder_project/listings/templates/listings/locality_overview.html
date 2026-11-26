@@ -1,0 +1,23 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Localities Overview — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Localities Overview</h1>
+
+{% for locality in localities %}
+<div class="detail-card" style="margin-bottom: 16px;">
+    <h2>{{ locality }}</h2>
+    <ul>
+        {% for pg in locality.pg_set.all %}
+            <li>
+                <a href="{% url 'pg_detail' pg.pk %}">{{ pg.name }}</a>
+                — ₹{{ pg.monthly_rent }} ({{ pg.gender_type }}, {{ pg.available_beds }} beds)
+            </li>
+        {% empty %}
+            <li>No PGs listed in this locality yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+{% endblock %}

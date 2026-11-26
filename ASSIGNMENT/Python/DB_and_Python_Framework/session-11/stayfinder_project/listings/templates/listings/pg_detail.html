@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+
+{% block title %}{{ pg.name }} — StayFinder{% endblock %}
+
+{% block content %}
+<h1>{{ pg.name }}</h1>
+<div class="detail-card">
+    <p><strong>Area:</strong> {{ pg.area }}</p>
+    <p><strong>Monthly Rent:</strong> <span class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</span></p>
+    <button type="button" id="yearly-rent-btn" data-rent="{{ pg.monthly_rent }}">Show yearly rent</button>
+    <p id="yearly-rent-output"></p>
+</div>
+<p><a href="{% url 'pg_list' %}">← Back to PG list</a></p>
+
+<script src="{% static 'listings/js/yearly_rent.js' %}"></script>
+{% endblock %}

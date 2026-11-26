@@ -1,0 +1,1 @@
+from hardware_shop.bill_numbers import new_bill_number

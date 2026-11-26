@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StayFinder{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'listings/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="brand">StayFinder</span>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'pg_list' %}">All PGs</a>
+            <a href="{% url 'pg_search' %}">Search</a>
+            <a href="{% url 'nearby_pgs' %}">Nearby</a>
+            <a href="{% url 'pg_stats' %}">Stats</a>
+            <a href="{% url 'locality_overview' %}">Localities</a>
+            <a href="{% url 'add_pg' %}">Add PG</a>
+            <a href="{% url 'visit_request' %}">Book Visit</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'dashboard' %}">Dashboard</a>
+                <a href="{% url 'profile_edit' %}">
+                    {% if user.profile.photo %}
+                        <img src="{{ user.profile.photo.url }}" alt="{{ user.username }}" width="28" height="28" style="border-radius: 50%; vertical-align: middle; object-fit: cover;">
+                    {% else %}
+                        <span>No photo</span>
+                    {% endif %}
+                    Hello, {{ user.username }}
+                </a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'signup' %}">Sign up</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Payment Cancelled — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Payment Cancelled</h1>
+<div class="detail-card">
+    <p>Your payment for <strong>{{ booking.pg.name }}</strong> was cancelled. Booking status remains <strong>{{ booking.status }}</strong>.</p>
+    <p><a href="{% url 'booking_detail' booking.pk %}" class="btn-primary" style="display: inline-block; text-decoration: none;">Return to Booking &amp; Retry</a></p>
+</div>
+{% endblock %}

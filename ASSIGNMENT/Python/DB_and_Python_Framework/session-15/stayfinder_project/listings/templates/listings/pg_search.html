@@ -1,0 +1,55 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Search PGs — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Search Available PGs</h1>
+
+<form method="get" class="stay-form" style="margin-bottom: 20px;">
+    <p>
+        <label for="id_q">Keyword (PG or Locality):</label>
+        <input type="text" id="id_q" name="q" value="{{ q }}">
+    </p>
+    <p>
+        <label for="id_gender">Gender:</label>
+        <select id="id_gender" name="gender">
+            <option value="">All</option>
+            <option value="Boys" {% if gender == 'Boys' %}selected{% endif %}>Boys</option>
+            <option value="Girls" {% if gender == 'Girls' %}selected{% endif %}>Girls</option>
+            <option value="Any" {% if gender == 'Any' %}selected{% endif %}>Any</option>
+        </select>
+    </p>
+    <p>
+        <label for="id_max_rent">Max Monthly Rent (₹):</label>
+        <input type="number" id="id_max_rent" name="max_rent" value="{{ max_rent }}">
+    </p>
+    <button type="submit" class="btn-primary">Search</button>
+</form>
+
+<table class="pg-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Locality</th>
+            <th>Monthly Rent</th>
+            <th>Gender Type</th>
+            <th>Available Beds</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pg in pgs %}
+        <tr>
+            <td><a href="{% url 'pg_detail' pg.pk %}">{{ pg.name }}</a></td>
+            <td>{{ pg.locality }}</td>
+            <td class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</td>
+            <td>{{ pg.gender_type }}</td>
+            <td>{{ pg.available_beds }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No matching PGs with available beds found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

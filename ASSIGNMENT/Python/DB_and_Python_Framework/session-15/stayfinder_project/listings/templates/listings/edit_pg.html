@@ -1,0 +1,14 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Edit {{ pg.name }} — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Edit PG: {{ pg.name }}</h1>
+
+<form method="post" class="stay-form" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn-primary">Update PG</button>
+</form>
+<p><a href="{% url 'pg_detail' pg.pk %}">← Cancel</a></p>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'listings/base.html' %}
+{% load static %}
+
+{% block title %}{{ pg.name }} — StayFinder{% endblock %}
+
+{% block content %}
+<h1>{{ pg.name }}</h1>
+<div class="detail-card">
+    {% if pg.photo %}
+        <p><img src="{{ pg.photo.url }}" alt="{{ pg.name }}" width="200" style="border-radius: 4px;"></p>
+    {% endif %}
+    <p><strong>Locality:</strong> {{ pg.locality }}</p>
+    <p><strong>Monthly Rent:</strong> <span class="{% if pg.monthly_rent > 8000 %}costly{% endif %}">₹{{ pg.monthly_rent }}</span></p>
+    <p><strong>Gender Type:</strong> {{ pg.gender_type }}</p>
+    <p><strong>Available Beds:</strong> {{ pg.available_beds }}</p>
+    <button type="button" id="yearly-rent-btn" data-rent="{{ pg.monthly_rent }}">Show yearly rent</button>
+    <p id="yearly-rent-output"></p>
+    <form method="post" action="{% url 'book_pg' pg.pk %}" style="margin-top: 12px;">
+        {% csrf_token %}
+        <button type="submit" class="btn-primary">Reserve a bed</button>
+    </form>
+
+    <h3>Location Map</h3>
+    {% if pg.latitude is not None and pg.longitude is not None %}
+        <iframe
+            width="100%"
+            height="300"
+            style="border: 0;"
+            loading="lazy"
+            src="https://maps.google.com/maps?q={{ pg.latitude }},{{ pg.longitude }}&z=15&output=embed">
+        </iframe>
+    {% else %}
+        <p>No location yet</p>
+    {% endif %}
+</div>
+<p>
+    <a href="{% url 'edit_pg' pg.pk %}">Edit PG</a> |
+    <a href="{% url 'delete_pg' pg.pk %}">Delete PG</a> |
+    <a href="{% url 'pg_list' %}">← Back to PG list</a>
+</p>
+
+<script src="{% static 'listings/js/yearly_rent.js' %}"></script>
+{% endblock %}

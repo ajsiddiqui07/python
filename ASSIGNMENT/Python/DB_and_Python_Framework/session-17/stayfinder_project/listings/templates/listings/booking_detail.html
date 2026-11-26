@@ -1,0 +1,21 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}Booking #{{ booking.pk }} — StayFinder{% endblock %}
+
+{% block content %}
+<h1>Booking #{{ booking.pk }}</h1>
+<div class="detail-card">
+    <p><strong>PG:</strong> {{ booking.pg.name }} ({{ booking.pg.locality }})</p>
+    <p><strong>Token Amount:</strong> ₹{{ booking.token_amount }}</p>
+    <p><strong>Status:</strong> {{ booking.get_status_display }}</p>
+    <p><strong>Created At:</strong> {{ booking.created_at }}</p>
+
+    {% if booking.status == 'pending' %}
+    <form method="post" action="{% url 'create_checkout' booking.pk %}" style="margin-top: 12px;">
+        {% csrf_token %}
+        <button type="submit" class="btn-primary">Pay Now</button>
+    </form>
+    {% endif %}
+</div>
+<p><a href="{% url 'pg_detail' booking.pg.pk %}">← Back to PG</a></p>
+{% endblock %}
